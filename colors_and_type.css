@@ -1,0 +1,299 @@
+/* =========================================================
+   RELIC HUNT — Core Tokens
+   Colors + Type + Spacing + Elevation + Motion
+   ========================================================= */
+
+/* Fonts:
+   - Cinzel (display): serif, engraved, for all titles/headings/eyebrows
+   - Onest (body): variable sans-serif, BRAND FONT, provided by the user as a TTF
+   - JetBrains Mono: for numeric stats, level/XP bars, leaderboard ranks
+*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+@font-face {
+  font-family: 'Onest';
+  src: url('fonts/Onest-VariableFont_wght.ttf') format('truetype-variations'),
+       url('fonts/Onest-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- Brand Primary ---------- */
+  /* Molten — the hero flame color. Used for the logo, primary CTAs, legendary rarity */
+  --molten-50:  #FFF5EC;
+  --molten-100: #FFE2C2;
+  --molten-200: #FFC085;
+  --molten-300: #FF9A4E;
+  --molten-400: #FF7A1F;
+  --molten-500: #F25A06;   /* PRIMARY BRAND ORANGE */
+  --molten-600: #C94405;
+  --molten-700: #9A3104;
+  --molten-800: #6B2003;
+  --molten-900: #3E1202;
+
+  /* Gold — legendary, premium, highlights, "sun warrior" armor */
+  --gold-200: #FFE18A;
+  --gold-300: #FFD24D;
+  --gold-400: #FBBF1A;   /* PRIMARY GOLD */
+  --gold-500: #E09A05;
+  --gold-600: #B07200;
+
+  /* ---------- Brand Secondary — Cosmic/Arcane ---------- */
+  /* Deep purple/violet backdrop sampled from provided Back.jpg + GradientBP assets */
+  --arcane-50:  #E8DCFF;
+  --arcane-100: #C4A8F0;
+  --arcane-200: #9968D4;
+  --arcane-300: #6F2CAE;
+  --arcane-400: #5F247F;   /* mid-purple (from GradientBP_2 top) */
+  --arcane-500: #542275;   /* PRIMARY PURPLE (from GradientBP_2 mid) */
+  --arcane-600: #3C1B5E;   /* deep purple (from GradientBP_2 bottom) */
+  --arcane-700: #281264;   /* cosmic indigo (from Back.jpg top) */
+  --arcane-800: #1A0A3E;   /* deep cosmic night */
+  --arcane-900: #0B0520;   /* void */
+
+  /* Magenta accent — pink/rose from GradientBP_1 lower band; used for gem highlights & lootbox jewels */
+  --magenta-300: #E08BB4;
+  --magenta-400: #B14C7E;   /* PRIMARY MAGENTA (gem pink) */
+  --magenta-500: #8A3161;
+  --magenta-600: #5C1D40;
+
+  /* Frost — ice warrior, epic rarity, cold/magic accents */
+  --frost-100: #E4F4FF;
+  --frost-200: #A7DBFF;
+  --frost-300: #6AB8F5;
+  --frost-400: #3E90E0;   /* PRIMARY ICE BLUE */
+  --frost-500: #1F66BA;
+  --frost-600: #103F80;
+
+  /* ---------- Neutrals — Cosmic Ink ---------- */
+  /* Deep near-black with a purple/indigo undertone — derived from Back.jpg */
+  --ink-0:    #FFFFFF;
+  --ink-50:   #F4EEFF;
+  --ink-100:  #D7CAE6;
+  --ink-200:  #9F90B8;
+  --ink-300:  #6A5C82;
+  --ink-400:  #403556;
+  --ink-500:  #261E38;
+  --ink-600:  #1A1428;
+  --ink-700:  #120D1E;   /* card surface */
+  --ink-800:  #0B0716;   /* primary app background */
+  --ink-900:  #050210;   /* deepest void */
+
+  /* Alias for any legacy refs */
+  --stone-800: var(--ink-800);
+
+  /* ---------- Rarity Scale (RPG loot tiers) ---------- */
+  --rarity-common:    #9CA3AF;   /* grey */
+  --rarity-uncommon:  #4ADE80;   /* emerald */
+  --rarity-rare:      #3E90E0;   /* frost-400 */
+  --rarity-epic:      #A98AFB;   /* arcane-200 */
+  --rarity-legendary: #FBBF1A;   /* gold-400 */
+  --rarity-mythic:    #F25A06;   /* molten-500 */
+
+  /* ---------- Semantic ---------- */
+  --success: #35C27A;
+  --warning: #F2A900;
+  --danger:  #E53B3B;
+  --info:    var(--frost-400);
+
+  /* Telegram brand (for Telegram-login CTA) */
+  --telegram: #27A7E7;
+  --telegram-dark: #1A88C3;
+
+  /* ---------- Surfaces ---------- */
+  --bg-app:         var(--ink-800);                /* #0B0716 */
+  --bg-app-tinted:  #12082A;                        /* cosmic-tinted night */
+  --bg-surface:     #1A1030;                        /* raised card over cosmic bg */
+  --bg-surface-2:   #261740;                        /* hovered / selected card */
+  --bg-surface-3:   #3A2360;                        /* strong selection / active tab */
+  --bg-overlay:     rgba(5, 2, 16, 0.72);
+  --bg-glass:       rgba(232, 220, 255, 0.05);
+  --bg-glass-strong:rgba(232, 220, 255, 0.1);
+
+  /* ---------- Foreground / text ---------- */
+  --fg-1: #FBF5FF;                 /* primary text on dark */
+  --fg-2: #D7CAE6;                 /* secondary text */
+  --fg-3: #9F90B8;                 /* tertiary / metadata */
+  --fg-4: #6A5C82;                 /* disabled / placeholder */
+  --fg-on-light:  var(--ink-800);  /* text on light panels */
+  --fg-on-molten: #FFFFFF;         /* text on orange CTA */
+  --fg-on-gold:   #3A1E03;         /* dark brown text on gold — matches wordmark shadow */
+
+  /* ---------- Borders / strokes ---------- */
+  --border-1: rgba(232, 220, 255, 0.08);  /* hairline */
+  --border-2: rgba(232, 220, 255, 0.16);  /* default */
+  --border-3: rgba(232, 220, 255, 0.28);  /* prominent */
+  --border-gold:  rgba(251, 191, 26, 0.55);
+  --border-ember: rgba(242, 90, 6, 0.6);
+  --border-arcane: rgba(153, 104, 212, 0.55);
+
+  /* Cel-shaded outline (the signature illustration stroke) — use on icon containers, rarity chips */
+  --outline-cel: #3A1E5E;  /* deep purple-brown, matches asset outlines */
+  --outline-cel-strong: #1F0F3A;
+
+  /* ---------- Gradients (the signature brand moves) ---------- */
+  /* The hero gradient — molten flame (for primary CTA) */
+  --grad-molten: linear-gradient(135deg, #FFD24D 0%, #FF9A4E 28%, #F25A06 62%, #C94405 100%);
+  /* Arcane cosmic background — sampled directly from Back.jpg (diagonal magenta bloom on indigo) */
+  --grad-arcane-sky: radial-gradient(ellipse 90% 70% at 60% 65%, #542275 0%, #3C1B5E 40%, #281264 75%, #1A0A3E 100%);
+  /* Vertical cosmic (from GradientBP_2) — use as banner/section bg */
+  --grad-cosmic-vertical: linear-gradient(180deg, #5F247F 0%, #542275 50%, #3C1B5E 100%);
+  /* Twilight — indigo through magenta (from GradientBP_1) — use for dynamic/event banners */
+  --grad-twilight: linear-gradient(180deg, #3B1A83 0%, #682C80 50%, #B14C7E 100%);
+  /* Frost gradient — ice warrior, rare-tier items */
+  --grad-frost: linear-gradient(160deg, #E4F4FF 0%, #6AB8F5 35%, #1F66BA 100%);
+  /* Gold medal — matches wordmark bevel */
+  --grad-gold: linear-gradient(180deg, #FFE18A 0%, #FBBF1A 45%, #B07200 100%);
+  /* Dark vignette over imagery */
+  --grad-vignette: radial-gradient(ellipse at center, transparent 40%, rgba(5,2,16,0.85) 100%);
+  /* Protection gradient — over any full-bleed photo/render so text stays readable */
+  --grad-protect: linear-gradient(180deg, transparent 0%, transparent 40%, rgba(5,2,16,0.88) 100%);
+
+  /* ---------- Shadows (warm, glow-forward) ---------- */
+  --shadow-xs: 0 1px 0 rgba(0,0,0,0.4);
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.4);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+  --shadow-lg: 0 20px 48px rgba(0,0,0,0.6);
+  --shadow-xl: 0 32px 80px rgba(0,0,0,0.75);
+
+  /* Glow — critical to the brand. Used on CTAs, legendary items, flame FX */
+  --glow-molten: 0 0 24px rgba(242, 90, 6, 0.55), 0 0 60px rgba(242, 90, 6, 0.25);
+  --glow-gold:   0 0 24px rgba(251, 191, 26, 0.55), 0 0 60px rgba(251, 191, 26, 0.22);
+  --glow-frost:  0 0 24px rgba(62, 144, 224, 0.55), 0 0 60px rgba(62, 144, 224, 0.22);
+  --glow-arcane:  0 0 28px rgba(153, 104, 212, 0.55), 0 0 80px rgba(111, 44, 174, 0.4);
+  --glow-magenta: 0 0 24px rgba(177, 76, 126, 0.55), 0 0 60px rgba(177, 76, 126, 0.22);
+
+  /* Inner rim light on cards */
+  --inset-rim-top:  inset 0 1px 0 rgba(255, 245, 236, 0.06);
+  --inset-rim-gold: inset 0 0 0 1px rgba(251, 191, 26, 0.35);
+
+  /* ---------- Radii ---------- */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* ---------- Spacing scale (4px base) ---------- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+
+  /* ---------- Motion ---------- */
+  --ease-out-power:  cubic-bezier(0.16, 1, 0.3, 1);     /* overshoot-feeling ease */
+  --ease-in-out:     cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-bounce:     cubic-bezier(0.34, 1.56, 0.64, 1); /* button press recoil */
+  --dur-fast:   140ms;
+  --dur-base:   220ms;
+  --dur-slow:   420ms;
+  --dur-cine:   900ms; /* hero reveals */
+
+  /* ---------- Type families ---------- */
+  --ff-display: 'Cinzel', 'Trajan Pro', 'Cormorant Garamond', serif;
+  --ff-body:    'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ff-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* ---------- Type scale (fluid) ---------- */
+  --fs-display-1: clamp(48px, 8vw, 112px);
+  --fs-display-2: clamp(40px, 6vw, 80px);
+  --fs-h1:        clamp(36px, 4.4vw, 64px);
+  --fs-h2:        clamp(28px, 3vw, 44px);
+  --fs-h3:        clamp(22px, 2vw, 30px);
+  --fs-h4:        18px;
+  --fs-body-lg:   18px;
+  --fs-body:      16px;
+  --fs-body-sm:   14px;
+  --fs-caption:   12px;
+  --fs-micro:     11px;
+
+  /* ---------- Tracking ---------- */
+  --ls-display: 0.02em;   /* Cinzel looks best with a whisper of tracking */
+  --ls-eyebrow: 0.24em;   /* uppercase eyebrow labels */
+  --ls-body:    0;
+}
+
+/* =========================================================
+   Semantic element defaults
+   ========================================================= */
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  color: var(--fg-1);
+  background: var(--bg-app);
+  font-feature-settings: 'ss01', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.display-1,
+.display-2,
+h1, h2, h3 {
+  font-family: var(--ff-display);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: var(--ls-display);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+.display-1 { font-size: var(--fs-display-1); font-weight: 900; line-height: 0.98; }
+.display-2 { font-size: var(--fs-display-2); font-weight: 800; line-height: 1.02; }
+h1         { font-size: var(--fs-h1); font-weight: 800; }
+h2         { font-size: var(--fs-h2); font-weight: 700; }
+h3         { font-size: var(--fs-h3); font-weight: 700; letter-spacing: 0.04em; }
+h4         { font-family: var(--ff-body); font-size: var(--fs-h4); font-weight: 700; letter-spacing: 0.01em; }
+
+p, .body { font-size: var(--fs-body); color: var(--fg-2); }
+.body-lg  { font-size: var(--fs-body-lg); color: var(--fg-2); line-height: 1.55; }
+.body-sm  { font-size: var(--fs-body-sm); color: var(--fg-2); }
+.caption  { font-size: var(--fs-caption); color: var(--fg-3); }
+.micro    { font-size: var(--fs-micro); color: var(--fg-3); }
+
+/* Eyebrow / section tag — always uppercase, spaced, gold-on-dark */
+.eyebrow {
+  font-family: var(--ff-body);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--gold-400);
+}
+
+/* Numeric / stats — monospace lends a retro-arcade feel */
+.stat, .num {
+  font-family: var(--ff-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+/* Text utility — molten gradient on words (hero titles) */
+.text-molten {
+  background: var(--grad-molten);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 0 rgba(0,0,0,0.45));
+}
+.text-gold {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-frost {
+  background: var(--grad-frost);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
