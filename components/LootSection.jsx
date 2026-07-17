@@ -191,6 +191,7 @@ const CtaSection = () => {
       <div style={{ display: 'flex', gap: 14, justifyContent: 'center', marginTop: 44,
         flexWrap: 'wrap', position: 'relative' }}>
         <Button variant="telegram" size="lg" href={TELEGRAM_APP_URL} icon={<TelegramLogoMark size={26}/>}>Play in Telegram</Button>
+        <Button variant="web" size="lg" href={WEB_APP_URL} icon={<WebPlayMark size={26}/>}>Play in Web</Button>
       </div>
 
       <div style={{ marginTop: 40, fontFamily: 'Onest, sans-serif', fontSize: 12,

@@ -117,6 +117,7 @@ const Hero = ({ layout = 'center' }) => {
           </p>
           <div style={{ display: 'flex', gap: 14, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
             <Button variant="telegram" size="lg" href={TELEGRAM_APP_URL} icon={<TelegramLogoMark size={26}/>}>Play in Telegram</Button>
+            <Button variant="web" size="lg" href={WEB_APP_URL} icon={<WebPlayMark size={26}/>}>Play in Web</Button>
           </div>
         </div>
 
@@ -151,6 +152,7 @@ const Hero = ({ layout = 'center' }) => {
             {sub}
             <div style={{ display: 'flex', gap: 14, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
               <Button variant="telegram" size="lg" href={TELEGRAM_APP_URL} icon={<TelegramLogoMark size={26}/>}>Play in Telegram</Button>
+              <Button variant="web" size="lg" href={WEB_APP_URL} icon={<WebPlayMark size={26}/>}>Play in Web</Button>
             </div>
           </div>
         </div>
@@ -177,6 +179,7 @@ const Hero = ({ layout = 'center' }) => {
           {sub}
           <div style={{ display: 'flex', gap: 14, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
             <Button variant="telegram" size="lg" href={TELEGRAM_APP_URL} icon={<TelegramLogoMark size={26}/>}>Play in Telegram</Button>
+            <Button variant="web" size="lg" href={WEB_APP_URL} icon={<WebPlayMark size={26}/>}>Play in Web</Button>
           </div>
         </div>
         {/* right: showcase card */}

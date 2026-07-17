@@ -1,4 +1,5 @@
 const TELEGRAM_APP_URL = 'https://t.me/relichuntdev_bot/app';
+const WEB_APP_URL = 'https://play.relichunt.game/';
 
 // Official-style Telegram icon (round blue disc + white paper plane, brand #229ED9)
 const TelegramLogoMark = ({ size = 24 }) => (
@@ -13,6 +14,21 @@ const TelegramLogoMark = ({ size = 24 }) => (
     <path d="M50 115 L186 52 C194 48 202 55 199 64 L172 193 C170 201 161 204 155 198 L118 164 L100 182 C95 187 87 184 86 177 L80 144 L52 127 C45 124 44 118 50 115 Z" fill="#FFFFFF"/>
     <path d="M118 164 L100 182 C95 187 87 184 86 177 L80 144 Z" fill="#C7E3F2"/>
     <path d="M80 144 L160 85 L118 164 Z" fill="#D9ECF6" opacity="0.85"/>
+  </svg>
+);
+
+// Web play icon — round fiery disc + white play triangle, matches the site's gold/orange accent
+const WebPlayMark = ({ size = 24 }) => (
+  <svg width={size} height={size} viewBox="0 0 240 240" aria-hidden="true">
+    <defs>
+      <linearGradient id="web-grad" x1="0.5" y1="0" x2="0.5" y2="1">
+        <stop offset="0" stopColor="#FFD24D"/>
+        <stop offset="0.55" stopColor="#F25A06"/>
+        <stop offset="1" stopColor="#C94405"/>
+      </linearGradient>
+    </defs>
+    <circle cx="120" cy="120" r="120" fill="url(#web-grad)"/>
+    <path d="M95 70 L178 120 L95 170 Z" fill="#FFFFFF"/>
   </svg>
 );
 
@@ -164,6 +180,29 @@ const Nav = () => {
         <TelegramLogoMark size={24}/>
         Play in Telegram
       </a>
+
+      {/* Web CTA — site's fiery gold/orange accent */}
+      <a
+        aria-label="Play in Web"
+        href={WEB_APP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          fontFamily: 'Onest, sans-serif', fontWeight: 700, fontSize: 13, letterSpacing: '0.01em',
+          padding: '6px 18px 6px 6px', borderRadius: 999, border: 'none', cursor: 'pointer',
+          display: 'inline-flex', alignItems: 'center', gap: 10,
+          background: 'linear-gradient(180deg, #FF9A4E 0%, #F25A06 100%)', color: '#FFFFFF', flex: 'none',
+          textDecoration: 'none',
+          boxShadow: '0 0 22px rgba(242,90,6,0.55), 0 6px 14px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.30), inset 0 -2px 0 rgba(0,0,0,0.18)',
+          transition: 'filter 180ms, transform 180ms',
+          height: 36,
+        }}
+        onMouseEnter={e => { e.currentTarget.style.filter = 'brightness(1.06)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+        onMouseLeave={e => { e.currentTarget.style.filter = ''; e.currentTarget.style.transform = ''; }}
+      >
+        <WebPlayMark size={24}/>
+        Play in Web
+      </a>
     </nav>
   );
 };
@@ -203,6 +242,11 @@ const Button = ({ variant = 'primary', size = 'md', children, icon, onClick, hre
       color: '#FFF',
       boxShadow: '0 0 28px rgba(34,158,217,0.6), 0 6px 18px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -2px 0 rgba(0,0,0,0.2)',
     },
+    web: {
+      background: 'linear-gradient(135deg, #FFD24D 0%, #FF9A4E 28%, #F25A06 62%, #C94405 100%)',
+      color: '#FFF',
+      boxShadow: '0 0 28px rgba(242,90,6,0.6), 0 6px 18px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -2px 0 rgba(0,0,0,0.2)',
+    },
     primary: {
       background: 'linear-gradient(135deg, #FFD24D 0%, #FF9A4E 28%, #F25A06 62%, #C94405 100%)',
       color: '#FFF',
@@ -234,4 +278,4 @@ const Button = ({ variant = 'primary', size = 'md', children, icon, onClick, hre
   );
 };
 
-Object.assign(window, { Nav, Button, TelegramIcon, PlayIcon, ArrowRightIcon, TelegramLogoMark, TELEGRAM_APP_URL });
+Object.assign(window, { Nav, Button, TelegramIcon, PlayIcon, ArrowRightIcon, TelegramLogoMark, WebPlayMark, TELEGRAM_APP_URL, WEB_APP_URL });
